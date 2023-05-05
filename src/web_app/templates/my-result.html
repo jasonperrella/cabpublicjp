@@ -1,0 +1,124 @@
+<!-- /templates/my-result.html-->
+
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
+
+<html>
+    <head>
+        <title>County Stats</title>
+    </head>
+
+    <!-- Add some style to table (OPTIONAL) -->
+    <style type="text/css">
+
+    th:tr{
+        color: blue;
+    }
+    tr:nth-of-type(2n){
+        border: 1px solid black;
+        background-color: rgba(150, 150, 150, 0.5);
+    }
+
+    td{
+        padding: 8px 8px;
+        border: 1px solid black;
+    }
+    </style>
+
+    <body><center>
+
+        <h4>General County Statistics</h4>
+        <table>
+            <!-- column header for loop in jinja template -->
+            <thead>
+                <tr>
+                {%for head in heads%}
+                    <th>{{head}}</th>
+                {%endfor%}
+                </tr>
+            </thead>
+            <!-- nested for loops in jinja template -->
+            <tbody>
+            {%for row in rows%}
+                <tr>
+                {%for col in row%}
+                    <td>{{col}}</td>
+                {%endfor%}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+
+        <br>
+
+        <h4>All Municipality Energy Statistics</h4>
+        <table>
+            <!-- column header for loop in jinja template -->
+            <thead>
+                <tr>
+                {%for head in heads1%}
+                    <th>{{head}}</th>
+                {%endfor%}
+                </tr>
+            </thead>
+            <!-- nested for loops in jinja template -->
+            <tbody>
+            {%for row in rows1%}
+                <tr>
+                {%for col in row%}
+                    <td>{{col}}</td>
+                {%endfor%}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+
+        <br>
+
+        <h4>EV Charger Locations</h4>
+        <table>
+            <!-- column header for loop in jinja template -->
+            <thead>
+                <tr>
+                {%for head in heads2%}
+                    <th>{{head}}</th>
+                {%endfor%}
+                </tr>
+            </thead>
+            <!-- nested for loops in jinja template -->
+            <tbody>
+            {%for row in rows2%}
+                <tr>
+                {%for col in row%}
+                    <td>{{col}}</td>
+                {%endfor%}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+
+        <br>
+
+        <h4>Gas Station Locations</h4>
+        <table>
+            <!-- column header for loop in jinja template -->
+            <thead>
+                <tr>
+                {%for head in heads3%}
+                    <th>{{head}}</th>
+                {%endfor%}
+                </tr>
+            </thead>
+            <!-- nested for loops in jinja template -->
+            <tbody>
+            {%for row in rows3%}
+                <tr>
+                {%for col in row%}
+                    <td>{{col}}</td>
+                {%endfor%}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </center>
+    </body>
+</html>

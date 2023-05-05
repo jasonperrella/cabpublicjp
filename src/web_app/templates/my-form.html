@@ -1,0 +1,59 @@
+<!-- /templates/my-form.html-->
+<html>
+
+    <input class="dark-light" type="checkbox" id="dark-light" name="dark-light"/>
+    <label for="dark-light"></label>
+
+    <div class="light-back"></div>
+    <div><img src="{{ url_for('static', filename= 'NJOutline.png')}}"  alt = "my Image"class = "transparent-bg"></div>
+
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
+
+
+    <div class = "sec-center">
+    <head>
+        <title>Group 15 Proj</title>
+    </head>
+    <body>
+	    <center>
+
+	    <h4>Select a county to view the it's statistics</h4>
+        <form action="/test" method="POST">
+            <div class = "dropdown">
+                <select name="countyInfo" id="county", class = "form-select-sm">
+                <label class = "form-select-sm" for="county">Choose a county:</label>
+                {% for item in items %}
+        
+                  <option value="{{item[0]}}">{{item[0]}}</option>
+                  {% endfor %}
+    
+                </select> 
+            </div>
+                <br>
+                <input type="submit" value="Submit">
+        </form>
+
+        <br>
+
+        <h4>View the Counties Sorted By Least or Most CO2 Emissions</h4>
+
+
+        <div>
+            <form action = "/asc" method="POST" style="display: inline-block">
+                <input type="submit" value="Ascending">
+            </form>
+
+            <form action = "/desc" method="POST" style="display: inline-block">
+                <input type="submit" value="Descending">
+            </form>
+     </div>
+     <div> 
+        <form action = "/aboutus" method="POST" style="display: inline-block">
+            <input type="submit" value="About Our Page" class = "hi">
+        </form>
+    </div>
+        </center>
+    </body>
+    </div>
+</html>
+
